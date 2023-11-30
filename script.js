@@ -1,5 +1,11 @@
 // Assignment code here
+// generateBtn = document.querySelector("#generate");
 
+function generatePassword (length, uppercase, lowercase, special) {
+  var passOpt = getPassOpt ()
+}
+
+generatePassword ();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
