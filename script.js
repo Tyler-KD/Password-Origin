@@ -6,7 +6,7 @@
 const cap = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-const special = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", ];
+const special = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "~"];
 
 // function passOpt = getPassOpt () {
 // // (Prompt)
@@ -16,7 +16,47 @@ const special = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", ];
 // return;
 // };
 
-function generatePassword (length, uppercase, lowercase, special) {
+// generatePassword function
+function generatePassword () {
+
+  // accept user input (prompt)
+  var userChoiceLength = function LengthPrompt () {
+    var userChoiceLengthInput = window.prompt ("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters");
+      if (userChoiceLengthInput < 8 || userChoiceLengthInput > 128) {
+      window.alert ("Your password must contain between 8 and 128 characters");
+      LengthPrompt ();
+      }
+      else {
+      userChoiceLength = userChoiceLengthInput;
+      };
+
+    var userChoiceUpper = function UpperPrompt () {
+      var userChoiceUpperInput = window.confirm ("Would you like to include upper case letters?");
+      userChoiceUpper = userChoiceUpperInput;
+    };
+
+    var userChoiceLower = function LowerPrompt () {
+      var userChoiceLowerInput = window.confirm ("Would you like to include lower case letters?");
+      userChoiceLower = userChoiceLowerInput;
+    };
+    
+    var userChoiceNumber = function NumberPrompt () {
+      var userChoiceNumberInput = window.confirm ("Would you like to include numbers?");
+      userChoiceNumber = userChoiceNumberInput;
+    };
+
+    var userChoiceSpecialCharacters = function SpecialCharactersPrompt () {
+      var userChoiceSpecialCharactersInput = window.confirm ("Would you like to include special characters?");
+      userChoiceSpecialCharacters = userChoiceSpecialCharactersInput;
+    };
+
+    userChoiceLength ();
+    userChoiceUpper ();
+    userChoiceLower ();
+    userChoiceNumber ();
+    userChoiceSpecialCharacters ();
+
+  }
   console.log ("This is working!")
   return "Generated password should go here!"
 };
