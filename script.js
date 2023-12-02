@@ -15,9 +15,17 @@ function generatePassword () {
   // accept user input (prompt)
   var userChoiceLength = function LengthPrompt () {
     var userChoiceLengthInput = window.prompt ("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters");
-      if (userChoiceLengthInput < 8 || userChoiceLengthInput > 128) {
-      window.alert ("Your password must contain between 8 and 128 characters");
+      if (userChoiceLengthInput === 0) {
+        window.alert ("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters")
+        LengthPrompt ();
+      }
+      if (userChoiceLengthInput < 8) {
+      window.alert ("Your password must contain more than 8 characters");
       LengthPrompt ();
+      }
+      if (userChoiceLengthInput > 128) {
+        window.alert ("Your password must contain less than 128 characters");
+        LengthPrompt ();
       }
       else {
       userChoiceLength = userChoiceLengthInput;
@@ -59,34 +67,15 @@ function generatePassword () {
 
     var characterSet = [];
 
-    if (userChoiceUpper) {
-      characterSet.push (...cap)
-    };
-
-    if (userChoiceLower) {
-      characterSet.push (...lowercase)
-    };
-
-    if (userChoiceNumber) {
-      characterSet.push (...numbers)
-    };
-
-    if (userChoiceSpecialCharacters) {
-      characterSet.push (...special)
-    };
-
-    if (!userChoiceUpper && !userChoiceLower && !userChoiceNumber && !userChoiceSpecialCharacters) {
-      window.alert ("Include at least one character")
-      location.reload ();
-    };
-
-    // Join characterSet array with passString array
-     var passString = characterSet.join ('');     
-
      console.log ("This is working!")
      return "Generated password should go here!"
   }; 
   
+  function userChoiceUpper () {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+   };
+
+   userChoiceUpper ();
 
 
 // generatePassword ();
