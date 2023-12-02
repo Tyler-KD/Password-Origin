@@ -9,14 +9,6 @@ const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const special = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "=", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~", "'"];
 const passString = [];
 
-// function passOpt = getPassOpt () {
-// // (Prompt)
-// var name = window.prompt("Enter your name: ");
-// alert("Your name is " + name);
-// (Alert)
-// return;
-// };
-
 // generatePassword function
 function generatePassword () {
 
@@ -30,6 +22,7 @@ function generatePassword () {
       else {
       userChoiceLength = userChoiceLengthInput;
       };
+    };
 
     var userChoiceUpper = function UpperPrompt () {
       var userChoiceUpperInput = window.confirm ("Would you like to include upper case letters?");
@@ -52,39 +45,51 @@ function generatePassword () {
     };
 
     userChoiceLength ();
+    console.log ("Password length: " + userChoiceLength);
     userChoiceUpper ();
+    console.log ("Uppercase letters: " + userChoiceUpper);
     userChoiceLower ();
+    console.log ("Lowercase letters: " + userChoiceLower);
     userChoiceNumber ();
+    console.log ("Numbers: " + userChoiceNumber);
     userChoiceSpecialCharacters ();
+    console.log ("Special Characters: " + userChoiceSpecialCharacters);
 
     // Initialize an empty array for character sets
 
     var characterSet = [];
 
     if (userChoiceUpper) {
-      characterSet.push (cap)
+      characterSet.push (...cap)
     };
 
     if (userChoiceLower) {
-      characterSet.push (lowercase)
+      characterSet.push (...lowercase)
     };
+
     if (userChoiceNumber) {
-      characterSet.push (numbers)
+      characterSet.push (...numbers)
     };
+
     if (userChoiceSpecialCharacters) {
-      characterSet.push (special)
+      characterSet.push (...special)
     };
+
     if (!userChoiceUpper && !userChoiceLower && !userChoiceNumber && !userChoiceSpecialCharacters) {
       window.alert ("Include at least one character")
       location.reload ();
     };
 
-  }
-  console.log ("This is working!")
-  return "Generated password should go here!"
-};
+    // Join characterSet array with passString array
+     var passString = characterSet.join ('');     
 
-generatePassword ();
+     console.log ("This is working!")
+     return "Generated password should go here!"
+  }; 
+  
+
+
+// generatePassword ();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
