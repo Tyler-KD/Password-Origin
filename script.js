@@ -14,7 +14,8 @@ function generatePassword () {
 
   // accept user input (prompt)
   var userChoiceLength = function LengthPrompt () {
-    var userChoiceLengthInput = window.prompt ("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters");
+    var userChoiceLengthInput = Number(prompt ("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters"));
+    
       if (userChoiceLengthInput === 0) {
         window.alert ("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters")
         LengthPrompt ();
@@ -65,17 +66,51 @@ function generatePassword () {
 
     // Initialize an empty array for character sets
 
-    var characterSet = [];
+    var possibleCharacters = [];
 
-     console.log ("This is working!")
-     return "Generated password should go here!"
+    function UpperPrompt() {
+      return confirm("Would you like to include upper case letters?");
+    }
+    if (UpperPrompt() === true) {
+      possibleCharacters = possibleCharacters.concat(cap);
+    };
+
+    function LowerPrompt() {
+      return confirm("Would you like to include lower case letters?");
+    } 
+    if (LowerPrompt() === true) {
+      possibleCharacters = possibleCharacters.concat(lowercase);
+    };
+    
+    function NumberPrompt() {
+      return confirm("Would you like to include numbers?");
+    } 
+    if (NumbersPrompt() === true) {
+      possibleCharacters = possibleCharacters.concat(numbers);
+    };
+
+    function SpecialPrompt() {
+      return confirm("Would you like to include special characters?");
+    }
+    if (SpecialPrompt() === true) {
+      possibleCharacters = possibleCharacters.concat(special);
+    };
+
+    let possibleCharacters = [];
+    let passString = [];
+
+    var passString = possibleCharacters.join ();
+
+
+
+    function getRandom(arr) {
+      var randIndex = Math.floor(Math.random() * arr.length);
+      console.log(randIndex);
+      var randElement = arr[randIndex];
+      console.log(randElement);
+      return randElement;
   }; 
   
-  function userChoiceUpper () {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-   };
-
-   userChoiceUpper ();
 
 
 // generatePassword ();
