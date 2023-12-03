@@ -9,108 +9,114 @@ const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const special = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "=", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~", "'"];
 const passString = [];
 
+var userChoiceLength = function LengthPrompt() {
+  var userChoiceLengthInput = Number(prompt("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters"));
+
+  if (userChoiceLengthInput === 0) {
+    window.alert("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters")
+    LengthPrompt();
+  }
+  if (userChoiceLengthInput < 8) {
+    window.alert("Your password must contain more than 8 characters");
+    LengthPrompt();
+  }
+  if (userChoiceLengthInput > 128) {
+    window.alert("Your password must contain less than 128 characters");
+    LengthPrompt();
+  }
+  else {
+    return userChoiceLengthInput;
+  };
+};
+
+var userChoiceUpper = function UpperPrompt() {
+  var userChoiceUpperInput = window.confirm("Would you like to include upper case letters?");
+  userChoiceUpper = userChoiceUpperInput;
+};
+
+var userChoiceLower = function LowerPrompt() {
+  var userChoiceLowerInput = window.confirm("Would you like to include lower case letters?");
+  userChoiceLower = userChoiceLowerInput;
+};
+
+var userChoiceNumber = function NumberPrompt() {
+  var userChoiceNumberInput = window.confirm("Would you like to include numbers?");
+  userChoiceNumber = userChoiceNumberInput;
+};
+
+var userChoiceSpecialCharacters = function SpecialCharactersPrompt() {
+  var userChoiceSpecialCharactersInput = window.confirm("Would you like to include special characters?");
+  userChoiceSpecialCharacters = userChoiceSpecialCharactersInput;
+};
+
+function UpperPrompt() {
+  return confirm("Would you like to include upper case letters?");
+};
+
+function LowerPrompt() {
+  return confirm("Would you like to include lower case letters?");
+};
+
+function NumbersPrompt() {
+  return confirm("Would you like to include numbers?");
+};
+
+function SpecialPrompt() {
+  return confirm("Would you like to include special characters?");
+};
+
 // generatePassword function
-function generatePassword () {
+function generatePassword() {
 
   // accept user input (prompt)
-  var userChoiceLength = function LengthPrompt () {
-    var userChoiceLengthInput = Number(prompt ("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters"));
-    
-      if (userChoiceLengthInput === 0) {
-        window.alert ("How many characters would you like your password to be?\nPlease enter a length between 8 and 128 characters")
-        LengthPrompt ();
-      }
-      if (userChoiceLengthInput < 8) {
-      window.alert ("Your password must contain more than 8 characters");
-      LengthPrompt ();
-      }
-      if (userChoiceLengthInput > 128) {
-        window.alert ("Your password must contain less than 128 characters");
-        LengthPrompt ();
-      }
-      else {
-      userChoiceLength = userChoiceLengthInput;
-      };
-    };
-
-    var userChoiceUpper = function UpperPrompt () {
-      var userChoiceUpperInput = window.confirm ("Would you like to include upper case letters?");
-      userChoiceUpper = userChoiceUpperInput;
-    };
-
-    var userChoiceLower = function LowerPrompt () {
-      var userChoiceLowerInput = window.confirm ("Would you like to include lower case letters?");
-      userChoiceLower = userChoiceLowerInput;
-    };
-    
-    var userChoiceNumber = function NumberPrompt () {
-      var userChoiceNumberInput = window.confirm ("Would you like to include numbers?");
-      userChoiceNumber = userChoiceNumberInput;
-    };
-
-    var userChoiceSpecialCharacters = function SpecialCharactersPrompt () {
-      var userChoiceSpecialCharactersInput = window.confirm ("Would you like to include special characters?");
-      userChoiceSpecialCharacters = userChoiceSpecialCharactersInput;
-    };
-
-    userChoiceLength ();
-    console.log ("Password length: " + userChoiceLength);
-    userChoiceUpper ();
-    console.log ("Uppercase letters: " + userChoiceUpper);
-    userChoiceLower ();
-    console.log ("Lowercase letters: " + userChoiceLower);
-    userChoiceNumber ();
-    console.log ("Numbers: " + userChoiceNumber);
-    userChoiceSpecialCharacters ();
-    console.log ("Special Characters: " + userChoiceSpecialCharacters);
-
-    // Initialize an empty array for character sets
-
-    var possibleCharacters = [];
-
-    function UpperPrompt() {
-      return confirm("Would you like to include upper case letters?");
-    }
-    if (UpperPrompt() === true) {
-      possibleCharacters = possibleCharacters.concat(cap);
-    };
-
-    function LowerPrompt() {
-      return confirm("Would you like to include lower case letters?");
-    } 
-    if (LowerPrompt() === true) {
-      possibleCharacters = possibleCharacters.concat(lowercase);
-    };
-    
-    function NumberPrompt() {
-      return confirm("Would you like to include numbers?");
-    } 
-    if (NumbersPrompt() === true) {
-      possibleCharacters = possibleCharacters.concat(numbers);
-    };
-
-    function SpecialPrompt() {
-      return confirm("Would you like to include special characters?");
-    }
-    if (SpecialPrompt() === true) {
-      possibleCharacters = possibleCharacters.concat(special);
-    };
-
-    let possibleCharacters = [];
-    let passString = [];
-
-    var passString = possibleCharacters.join ();
 
 
+  var passwordSize = userChoiceLength();
+  console.log (passwordSize);
+  // console.log("Password length: " + userChoiceLength);
+  // userChoiceUpper();
+  // console.log("Uppercase letters: " + userChoiceUpper);
+  // userChoiceLower();
+  // console.log("Lowercase letters: " + userChoiceLower);
+  // userChoiceNumber();
+  // console.log("Numbers: " + userChoiceNumber);
+  // userChoiceSpecialCharacters();
+  // console.log("Special Characters: " + userChoiceSpecialCharacters);
 
-    function getRandom(arr) {
-      var randIndex = Math.floor(Math.random() * arr.length);
-      console.log(randIndex);
-      var randElement = arr[randIndex];
-      console.log(randElement);
-      return randElement;
-  }; 
-  
+  // Initialize an empty array for character sets
+
+  var possibleCharacters = [];
+
+
+  if (UpperPrompt() === true) {
+    possibleCharacters = possibleCharacters.concat(cap);
+  };
+
+
+  if (LowerPrompt() === true) {
+    possibleCharacters = possibleCharacters.concat(lowercase);
+  };
+
+
+  if (NumbersPrompt() === true) {
+    possibleCharacters = possibleCharacters.concat(numbers);
+  };
+
+
+  if (SpecialPrompt() === true) {
+    possibleCharacters = possibleCharacters.concat(special);
+  };
+
+}
+
+function getRandom(arr) {
+  var randIndex = Math.floor(Math.random() * arr.length);
+  console.log(randIndex);
+  var randElement = arr[randIndex];
+  console.log(randElement);
+  return randElement;
+};
+
 
 
 // generatePassword ();
