@@ -29,26 +29,6 @@ var userChoiceLength = function LengthPrompt() {
   };
 };
 
-var userChoiceUpper = function UpperPrompt() {
-  var userChoiceUpperInput = window.confirm("Would you like to include upper case letters?");
-  userChoiceUpper = userChoiceUpperInput;
-};
-
-var userChoiceLower = function LowerPrompt() {
-  var userChoiceLowerInput = window.confirm("Would you like to include lower case letters?");
-  userChoiceLower = userChoiceLowerInput;
-};
-
-var userChoiceNumber = function NumberPrompt() {
-  var userChoiceNumberInput = window.confirm("Would you like to include numbers?");
-  userChoiceNumber = userChoiceNumberInput;
-};
-
-var userChoiceSpecialCharacters = function SpecialCharactersPrompt() {
-  var userChoiceSpecialCharactersInput = window.confirm("Would you like to include special characters?");
-  userChoiceSpecialCharacters = userChoiceSpecialCharactersInput;
-};
-
 function UpperPrompt() {
   return confirm("Would you like to include upper case letters?");
 };
@@ -107,6 +87,12 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(special);
   };
 
+  var passString = ""
+  for (i=0; i < passwordSize; i++) {
+    passString = passString + getRandom (possibleCharacters);
+  }
+ 
+  return passString;
 }
 
 function getRandom(arr) {
