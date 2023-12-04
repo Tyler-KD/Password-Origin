@@ -1,8 +1,7 @@
 // Assignment code here
-// generateBtn = document.querySelector("#generate");
 
 // An array stores a collection of multiple items under a single variable name
-// Arrays for numbers, uppercase, lowercase, and special characters
+// Arrays for uppercase letters, lowercase letters, numbers, and special characters
 // The constant declaration declares block-scoped local variables. The value of a constant cannot be reassigned.
 // Uppercase array
 const cap = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -30,11 +29,11 @@ function userChoiceLength() {
       window.alert('Your password must contain at least 8 characters and no more than 128 characters.');
       return true;
     } else {
-      // userChoiceLengthInput < 8 means the user's password length is less than 8 characters
-      // userChoiceLengthInput > 128 means the user's password length is longer than 128 characters
-      // isNaN(userChoiceLengthInput) means the user's password length is not a number
       // userChoiceLengthInput == null means the user's password length has no value
-      if (userChoiceLengthInput < 8 || userChoiceLengthInput > 128 || isNaN(userChoiceLengthInput) || userChoiceLengthInput == null) {
+      // isNaN(userChoiceLengthInput) means the user's password length is not a number
+      // userChoiceLengthInput < 8 means the user's password length is less than 8 characters
+      // userChoiceLengthInput > 128 means the user's password length is longer than 128 characters   
+      if (userChoiceLengthInput == null || isNaN(userChoiceLengthInput) || userChoiceLengthInput < 8 || userChoiceLengthInput > 128) {
         window.alert('Your password must contain at least 8 characters and no more than 128 characters.');
       } else {
         return userChoiceLengthInput;
@@ -48,7 +47,7 @@ function userChoiceLength() {
 
 function UpperPrompt() {
   // Confirm allows option to enter "No" with Cancel Button
-  // If the user clicks "Okay," the box returns true.  If the user clicks "Cancel," the box returns false.
+  // If the user clicks "OK," the box returns true.  If the user clicks "Cancel," the box returns false.
   return confirm("Would you like to include upper case letters?");
 };
 
@@ -75,8 +74,8 @@ function generatePassword() {
 
   var possibleCharacters = [];
 
-  // The concatenation method joins 2 or more arrays and returns new array
-  // Concat user's criteria to possibleCharacters array
+  // The concatenation method joins 2 or more arrays and returns a new array
+  // With user's criteria, concat constant variable arrays to possibleCharacters array
   // Each user criteria array is concatenated as long as it is confirmed 
   if (UpperPrompt() === true) {
     possibleCharacters = possibleCharacters.concat(cap);
@@ -113,9 +112,9 @@ function generatePassword() {
   return passString;
 }
 
-// getRandom function returns a random number for possibleCharacters array
+// getRandom function returns a random character or number for possibleCharacters array
 
-// getRandom returns one character at a time
+// getRandom returns one character or number at a time
 function getRandom(arr) {
   // Math.random method returns a random number from 0 (inclusive) up to but not including 1 (exclusive)
   // Math.floor method rounds a number DOWN to the nearest integer
