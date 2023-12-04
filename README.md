@@ -12,6 +12,10 @@ Attached is a screenshot of the webpage:
 
 ![Password-Origin Screenshot](<assets/images/Screenshot (82).png>)
 
+## Deployed Site
+
+[Deployed Site](https://tyler-kd.github.io/Password-Origin/)
+
 ## Credits
 
 [JavaScript Function Order](https://www.jsdiaries.com/does-javascript-function-order-matter/#:~:text=So%2C%20why%20exactly%20does%20JavaScript,functions%20in%20the%20outer%20scope)
