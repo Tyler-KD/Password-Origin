@@ -95,6 +95,11 @@ function generatePassword() {
   if (SpecialPrompt() === true) {
     possibleCharacters = possibleCharacters.concat(special);
   };
+  
+  if (possibleCharacters.length == 0) {
+    window.alert("You must select at least one character type to include. Click 'OK' to start over.")
+   return generatePassword();
+  };
 
   // Convert passString array into a string
   // getRandom function returns the amount of characters in possibleCharacters array through for-loops
