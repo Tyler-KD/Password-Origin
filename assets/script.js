@@ -104,7 +104,7 @@ function generatePassword() {
   // Convert passString array into a string
   // getRandom function returns the amount of characters in possibleCharacters array through for-loops
   // For-loops execute code more than once
-  // (i=0) means the index starts at 0 integer
+  // (i=0) means the index starts at 0
   // (i < passwordSize) means the for-loop will run as long as the index number is less than the length of passwordSize function expression
   // (i++) is the incremental increase for each index integer
   var passString = ""
